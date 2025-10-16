@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Chatbot - Pandu Asisten Digital Bappeda</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #00A4EC 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-bottom: 2rem;
+        }
+
+        .main-title {
+            color: #FCFCFC;
+            font-weight: bold;
+        }
+
+        .chat-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .chat-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #667eea 0%, #00A4EC 100%);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header h5 {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .chat-status {
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            display: flex;
+            flex-direction: column;
+            max-width: 75%;
+        }
+
+        .message.user .message-content {
+            align-items: flex-end;
+            margin-left: 3rem;
+        }
+
+        .message.bot .message-content {
+            align-items: flex-start;
+            margin-right: 3rem;
+        }
+
+        .message-bubble {
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            word-wrap: break-word;
+            word-break: break-word;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .message.user .message-bubble {
+            background: linear-gradient(135deg, #667eea 0%, #00A4EC 100%);
+            color: white;
+            border-top-right-radius: 4px;
+        }
+
+        .message.bot .message-bubble {
+            background: white;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            border-top-left-radius: 4px;
+        }
+
+        .message.bot .message-bubble p {
+            margin-bottom: 0.5rem;
+        }
+
+        .message.bot .message-bubble p:last-child {
+            margin-bottom: 0;
+        }
+
+        .message.bot .message-bubble ol,
+        .message.bot .message-bubble ul {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .message.bot .message-bubble li {
+            margin-bottom: 0.5rem;
+        }
+
+        .message.bot .message-bubble a {
+            color: #00A4EC;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .message.bot .message-bubble a:hover {
+            text-decoration: underline;
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, #667eea 0%, #00A4EC 100%);
+            margin-left: 0.5rem;
+            order: 2;
+        }
+
+        .message.bot .message-avatar {
+            background: #e0e7ff;
+            margin-right: 0.5rem;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            color: #999;
+            margin-top: 0.25rem;
+            text-align: right;
+        }
+
+        .message.bot .message-time {
+            text-align: left;
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 0.75rem 1rem;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+
+            max-width: 75px;
+        }
+
+        .typing-indicator.active {
+            display: block;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        .chat-input-area {
+            padding: 1rem 1.5rem;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-send {
+            background: linear-gradient(135deg, #667eea 0%, #00A4EC 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex-shrink: 0;
+        }
+
+        .btn-send:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-send:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .welcome-message {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #999;
+        }
+
+        .welcome-message h5 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .quick-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .quick-action-btn {
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quick-action-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .error-message {
+            background: #fee;
+            border-left: 4px solid #f44;
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #c33;
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .message-content {
+                max-width: 85%;
+            }
+
+            .message.user .message-content {
+                margin-left: 1rem;
+            }
+
+            .message.bot .message-content {
+                margin-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <div class="chat-container">
+            <div class="chat-card">
+                <div class="chat-header">
+                    <div>
+                        <h5>💬 Chat dengan Pandu</h5>
+                        <small>Tanyakan tentang dokumen dan informasi Bappeda</small>
+                    </div>
+                    <div class="chat-status">
+                        <span class="status-dot"></span>
+                        <span>Online</span>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="welcome-message">
+                        <h5>👋 Selamat datang!</h5>
+                        <p>Saya Pandu, asisten digital Bappeda Kota Dumai.<br>
+                        Saya siap membantu Anda mencari dokumen dan informasi.</p>
+                        <div class="quick-actions">
+                            <button class="quick-action-btn" onclick="sendQuickMessage('Berikan RKPD 2025')">RKPD 2025</button>
+                            <button class="quick-action-btn" onclick="sendQuickMessage('Ada dokumen RPJMD?')">RPJMD</button>
+                            <button class="quick-action-btn" onclick="sendQuickMessage('Rapat apa hari ini?')">Agenda Hari Ini</button>
+                            <button class="quick-action-btn" onclick="sendQuickMessage('Alamat kantor Bappeda?')">Info Kontak</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            class="chat-input" 
+                            id="messageInput" 
+                            placeholder="Ketik pertanyaan Anda..."
+                            autocomplete="off"
+                        >
+                        <button class="btn-send" id="sendBtn" onclick="sendMessage()">
+                            <span style="font-size: 1.3rem;">➤</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="pt-4 mt-4">
+            <p><a href="index.html" class="text-light">Halaman panduan</a></p>
+            <p class="small opacity-75">© 2025 Bappeda Kota Dumai | Dikembangkan oleh Tim Sekretariat</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let sessionId = Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        let isProcessing = false;
+
+        function scrollToBottom() {
+            const messagesDiv = document.getElementById('chatMessages');
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function getCurrentTime() {
+            const now = new Date();
+            return now.getHours().toString().padStart(2, '0') + ':' + 
+                   now.getMinutes().toString().padStart(2, '0');
+        }
+
+        function addMessage(text, isUser = false) {
+            const messagesDiv = document.getElementById('chatMessages');
+            const welcomeMsg = messagesDiv.querySelector('.welcome-message');
+            if (welcomeMsg) {
+                welcomeMsg.remove();
+            }
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.textContent = isUser ? '👤' : '🤖';
+            
+            const contentWrapper = document.createElement('div');
+            contentWrapper.className = 'message-content';
+            
+            const bubble = document.createElement('div');
+            bubble.className = 'message-bubble';
+            
+            if (isUser) {
+                bubble.textContent = text;
+            } else {
+                bubble.innerHTML = text;
+            }
+            
+            const time = document.createElement('div');
+            time.className = 'message-time';
+            time.textContent = getCurrentTime();
+            
+            contentWrapper.appendChild(bubble);
+            contentWrapper.appendChild(time);
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(contentWrapper);
+            
+            messagesDiv.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        function showTypingIndicator() {
+            const messagesDiv = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.textContent = '🤖';
+            
+            const indicator = document.createElement('div');
+            indicator.className = 'typing-indicator active';
+            indicator.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+            
+            typingDiv.appendChild(avatar);
+            typingDiv.appendChild(indicator);
+            messagesDiv.appendChild(typingDiv);
+            scrollToBottom();
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        async function sendMessage() {
+            if (isProcessing) return;
+            
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            isProcessing = true;
+            const sendBtn = document.getElementById('sendBtn');
+            sendBtn.disabled = true;
+            input.disabled = true;
+            
+            addMessage(message, true);
+            input.value = '';
+            
+            showTypingIndicator();
+            
+            try {
+                const response = await fetch('https://n8n-tq7lebytvmnn.arman.sumopod.my.id/webhook/ask-for', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        session_id: sessionId,
+                        message: message
+                    })
+                });
+                
+                hideTypingIndicator();
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                const data = await response.json();
+                
+                if (data && data[0] && data[0].code === 200) {
+                    addMessage(data[0].message);
+                } else {
+                    addMessage('<p>Maaf, terjadi kesalahan dalam memproses permintaan Anda. Silakan coba lagi.</p>');
+                }
+                
+            } catch (error) {
+                hideTypingIndicator();
+                console.error('Error:', error);
+                addMessage('<div class="error-message">❌ Maaf, tidak dapat terhubung ke server. Silakan coba lagi nanti.</div>');
+            } finally {
+                isProcessing = false;
+                sendBtn.disabled = false;
+                input.disabled = false;
+                input.focus();
+            }
+        }
+
+        function sendQuickMessage(message) {
+            const input = document.getElementById('messageInput');
+            input.value = message;
+            sendMessage();
+        }
+
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !isProcessing) {
+                sendMessage();
+            }
+        });
+
+        document.getElementById('messageInput').focus();
+    </script>
+</body>
+</html>
