@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manual Book - Pandu Asisten Digital Bappeda Kota Dumai</title>
-    
+
     <!-- Bootstrap 4 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    
+
     <style>
         body {
             background: linear-gradient(135deg, #667eea 0%, #00A4EC 100%);
@@ -23,7 +24,7 @@
         .tab-card {
             background: white;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             overflow: hidden;
         }
 
@@ -33,7 +34,7 @@
             left: 0;
             right: 0;
             background: white;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             border-top: 1px solid #e0e0e0;
         }
@@ -187,8 +188,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 576px) {
@@ -203,6 +211,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container py-4">
         <!-- Header -->
@@ -236,10 +245,12 @@
 
                     <div class="my-4">
                         <h3 class="subsection-title">📂 Alur Kerja Pengelolaan Dokumen</h3>
-                        
+
                         <div class="step-card p-3 mb-3 rounded">
                             <h5><span class="step-number">1</span> Persiapan Dokumen</h5>
-                            <p class="mb-0 ml-5">PIC Bidang menyiapkan dokumen (dalam format PDF jika memungkinkan) yang akan dipublikasikan dan mengirimkannya melalui email  ke Administrator <code class="email">far.bppddum@gmail.com</code></p>
+                            <p class="mb-0 ml-5">PIC Bidang menyiapkan dokumen (dalam format PDF jika memungkinkan) yang
+                                akan dipublikasikan dan mengirimkannya melalui email ke Administrator <code
+                                    class="email">far.bppddum@gmail.com</code></p>
                         </div>
 
                         <div class="step-card p-3 mb-3 rounded">
@@ -263,7 +274,8 @@
                                 <li>Buka folder "Arsip Dokumen"</li>
                                 <li>Pilih subfolder berdasarkan kepemilikan dokumen</li>
                                 <li>Upload file yang telah distandarisasi</li>
-                                <li>Pastikan pengaturan akses: <strong>Viewer untuk semua yang memiliki link</strong></li>
+                                <li>Pastikan pengaturan akses: <strong>Viewer untuk semua yang memiliki link</strong>
+                                </li>
                             </ul>
                         </div>
 
@@ -332,14 +344,15 @@
 
                     <div class="my-4">
                         <h3 class="subsection-title">⚠️ Hal Penting yang Harus Diperhatikan</h3>
-                        
+
                         <div class="alert alert-warning">
                             <strong>⚠️ Peringatan Penting:</strong>
                             <ul class="mb-0 mt-2">
                                 <li>Jangan mengubah struktur folder yang sudah ada</li>
                                 <li>Pastikan dokumen tidak mengandung informasi rahasia</li>
                                 <li>Selalu backup dokumen sebelum menghapus</li>
-                                <li>Hanya dokumen dengan status <code>published=TRUE</code> yang akan muncul di Pandu</li>
+                                <li>Hanya dokumen dengan status <code>published=TRUE</code> yang akan muncul di Pandu
+                                </li>
                             </ul>
                         </div>
 
@@ -358,15 +371,18 @@
                         <h3 class="subsection-title">🔧 Troubleshooting</h3>
                         <div class="command-item p-3 mb-2 rounded">
                             <strong>Masalah: Link tidak bisa diakses</strong>
-                            <p class="mb-0 mt-1"><small>Solusi: Pastikan setting share Google Drive adalah "Anyone with the link can view"</small></p>
+                            <p class="mb-0 mt-1"><small>Solusi: Pastikan setting share Google Drive adalah "Anyone with
+                                    the link can view"</small></p>
                         </div>
                         <div class="command-item p-3 mb-2 rounded">
                             <strong>Masalah: Dokumen tidak muncul di Pandu</strong>
-                            <p class="mb-0 mt-1"><small>Solusi: Cek apakah kolom <code>published</code> sudah diset TRUE dan metadata sudah lengkap</small></p>
+                            <p class="mb-0 mt-1"><small>Solusi: Cek apakah kolom <code>published</code> sudah diset TRUE
+                                    dan metadata sudah lengkap</small></p>
                         </div>
                         <div class="command-item p-3 mb-2 rounded">
                             <strong>Masalah: Duplikasi data di Sheet</strong>
-                            <p class="mb-0 mt-1"><small>Solusi: Gunakan ID yang unik untuk setiap dokumen, cek kolom <code>id</code></small></p>
+                            <p class="mb-0 mt-1"><small>Solusi: Gunakan ID yang unik untuk setiap dokumen, cek kolom
+                                    <code>id</code></small></p>
                         </div>
                     </div>
                 </div>
@@ -374,11 +390,12 @@
                 <!-- Tab User -->
                 <div class="tab-pane fade" id="user" role="tabpanel">
                     <h2 class="section-title">👥 Panduan untuk Pengguna</h2>
-                    <p class="lead">Cara mudah menggunakan Pandu untuk mengakses dokumen dan informasi Bappeda Kota Dumai.</p>
+                    <p class="lead">Cara mudah menggunakan Pandu untuk mengakses dokumen dan informasi Bappeda Kota
+                        Dumai.</p>
 
                     <div class="my-4">
                         <h3 class="subsection-title">🚀 Memulai dengan Pandu</h3>
-                        
+
                         <div class="row mt-4">
                             <div class="col-md-6 col-lg-3 mb-3">
                                 <div class="feature-card">
@@ -413,13 +430,15 @@
                             <div class="col col-md-8">
                                 <div class="step-card p-3 mb-3 rounded">
                                     <h5><span class="step-number">1</span> Install Telegram</h5>
-                                    <p class="ml-5">Download aplikasi Telegram di smartphone (Android dan iOS) atau gunakan versi web/desktop dengan kunjungi <a href="https://telegram.org/apps">laman download</a>.</p>
+                                    <p class="ml-5">Download aplikasi Telegram di smartphone (Android dan iOS) atau
+                                        gunakan versi web/desktop dengan kunjungi <a
+                                            href="https://telegram.org/apps">laman download</a>.</p>
 
                                     <p class="mb-0 ml-5">Atau <a href="demo.html">coba berkenalan dengan Pandu</a>.</p>
                                 </div>
                             </div>
                             <div class="col-md-3 col-12 text-center pb-3">
-                                <img src="assets/logo/canvas.gif" alt="canvas telegram" width="250">
+                                <img src="assets/images/canvas.gif" alt="canvas telegram" width="250">
                             </div>
                         </div>
 
@@ -427,11 +446,13 @@
                             <div class="col col-md-8">
                                 <div class="step-card p-3 mb-3 rounded">
                                     <h5><span class="step-number">2</span> Cari Bot Pandu</h5>
-                                    <p class="mb-0 ml-5">Ketik username bot di pencarian Telegram: <a href="https://t.me/bppdDumBot">@bppdDumBot</a></p>
+                                    <p class="mb-0 ml-5">Ketik username bot di pencarian Telegram: <a
+                                            href="https://t.me/bppdDumBot">@bppdDumBot</a></p>
                                 </div>
                             </div>
                             <div class="col-md-3 col-12 text-center pb-3">
-                                <img src="assets/logo/bot_pandu.PNG" alt="bot PANDU" width="250" style="border-radius: .5rem;">
+                                <img src="assets/images/bot_pandu.PNG" alt="bot PANDU" width="250"
+                                    style="border-radius: .5rem;">
                             </div>
                         </div>
 
@@ -439,11 +460,14 @@
                             <div class="col col-md-8">
                                 <div class="step-card p-3 mb-3 rounded">
                                     <h5><span class="step-number">3</span> Mulai Chat</h5>
-                                    <p class="mb-0 ml-5">Tekan tombol <strong>START</strong> atau ketik <code>/start</code> untuk memulai</p>
+                                    <p class="mb-0 ml-5">Tekan tombol <strong>START</strong> atau ketik
+                                        <code>/start</code> untuk memulai
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-md-3 col-12 text-center pb-3">
-                                <img src="assets/logo/bot_start.PNG" alt="bot PANDU" width="250" style="border-radius: .5rem;">
+                                <img src="assets/images/bot_start.PNG" alt="bot PANDU" width="250"
+                                    style="border-radius: .5rem;">
                             </div>
                         </div>
 
@@ -451,18 +475,20 @@
                             <div class="col col-md-8">
                                 <div class="step-card p-3 mb-3 rounded">
                                     <h5><span class="step-number">4</span> Mulai Bertanya</h5>
-                                    <p class="mb-0 ml-5">Pandu siap membantu Anda! Ketik pertanyaan dengan bahasa natural</p>
+                                    <p class="mb-0 ml-5">Pandu siap membantu Anda! Ketik pertanyaan dengan bahasa
+                                        natural</p>
                                 </div>
                             </div>
                             <div class="col-md-3 col-12 text-center pb-3">
-                                <img src="assets/logo/bot_ask.PNG" alt="bot PANDU" width="250" style="border-radius: .5rem;">
+                                <img src="assets/images/bot_ask.PNG" alt="bot PANDU" width="250"
+                                    style="border-radius: .5rem;">
                             </div>
                         </div>
                     </div>
 
                     <div class="my-4">
                         <h3 class="subsection-title">💬 Cara Berinteraksi dengan Pandu</h3>
-                        
+
                         <h5 class="mt-4">🔍 Mencari Dokumen</h5>
                         <div class="command-box p-3">
                             <p><strong>Contoh Pertanyaan:</strong></p>
@@ -472,7 +498,8 @@
                             </div>
                             <div class="command-item p-2 mb-2 rounded">
                                 <code>Ada dokumen RPJMD?</code>
-                                <p class="mb-0 mt-1"><small>Pandu akan menampilkan dokumen RPJMD yang tersedia</small></p>
+                                <p class="mb-0 mt-1"><small>Pandu akan menampilkan dokumen RPJMD yang tersedia</small>
+                                </p>
                             </div>
                             <div class="command-item p-2 mb-2 rounded">
                                 <code>Laporan kinerja tahun lalu</code>
@@ -502,17 +529,19 @@
                             </div>
                             <div class="command-item p-2 mb-2 rounded">
                                 <code>Kontak media sosial Bappeda</code>
-                                <p class="mb-0 mt-1"><small>Pandu akan memberikan link Instagram dan Facebook</small></p>
+                                <p class="mb-0 mt-1"><small>Pandu akan memberikan link Instagram dan Facebook</small>
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="my-4">
                         <h3 class="subsection-title">🔐 Akses Data Pegawai (Khusus Internal)</h3>
-                        
+
                         <div class="alert alert-info">
                             <strong>ℹ️ Verifikasi Diperlukan:</strong>
-                            <p class="mb-0 mt-2">Untuk mengakses data pegawai atau informasi internal tertentu, Pandu akan meminta verifikasi identitas Anda untuk menjaga keamanan data.</p>
+                            <p class="mb-0 mt-2">Untuk mengakses data pegawai atau informasi internal tertentu, Pandu
+                                akan meminta verifikasi identitas Anda untuk menjaga keamanan data.</p>
                         </div>
 
                         <h5 class="mt-4">Proses Verifikasi:</h5>
@@ -532,21 +561,71 @@
 
                         <div class="step-card p-3 mb-3 rounded">
                             <h6><span class="step-number">3</span> Akses Diberikan</h6>
-                            <p class="mb-0 ml-5"><small>Setelah verifikasi berhasil, Pandu akan memberikan informasi yang diminta</small></p>
+                            <p class="mb-0 ml-5"><small>Setelah verifikasi berhasil, Pandu akan memberikan informasi
+                                    yang diminta</small></p>
                         </div>
                     </div>
 
                     <div class="my-4">
                         <h3 class="subsection-title">💡 Tips Berkomunikasi dengan Pandu</h3>
-                        
+
                         <div class="alert alert-success">
                             <strong>✅ Tips untuk Hasil Terbaik:</strong>
                             <ul class="mb-0 mt-2">
                                 <li><strong>Gunakan bahasa natural:</strong> Tidak perlu perintah khusus</li>
                                 <li><strong>Sebutkan kata kunci:</strong> Nama dokumen, tahun, atau jenis informasi</li>
-                                <li><strong>Jelas dan spesifik:</strong> Semakin jelas pertanyaan, semakin akurat jawabannya</li>
+                                <li><strong>Jelas dan spesifik:</strong> Semakin jelas pertanyaan, semakin akurat
+                                    jawabannya</li>
                                 <li><strong>Bertanya satu per satu:</strong> Untuk hasil lebih fokus</li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="galeri" role="tabpanel">
+                    <h2 class="section-title">🎬 Galeri Video</h2>
+                    <p class="lead">Video promo dan tutorial penggunaan Pandu untuk memudahkan Anda memahami fitur-fitur
+                        yang tersedia.</p>
+
+                    <div class="my-4">
+                        <h3 class="subsection-title">📺 Video Promo</h3>
+                        <div class="row">
+                            <div class="col-lg-12 mb-4">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body p-2">
+                                        <video controls class="w-100 rounded" poster="">
+                                            <source src="assets/videos/pandu-promo.mp4" type="video/mp4">
+                                            Browser Anda tidak mendukung tag video.
+                                        </video>
+                                    </div>
+                                    <div class="card-footer bg-white border-0">
+                                        <h5 class="mb-1">Kenalan dengan Pandu</h5>
+                                        <p class="text-muted small mb-0">Pengenalan singkat tentang Pandu dan
+                                            fitur-fitur unggulannya</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="my-4 d-none">
+                        <h3 class="subsection-title">🎓 Video Tutorial</h3>
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body p-2">
+                                        <video controls class="w-100 rounded" poster="">
+                                            <source src="assets/videos/fulan.mp4" type="video/mp4">
+                                            Browser Anda tidak mendukung tag video.
+                                        </video>
+                                    </div>
+                                    <div class="card-footer bg-white border-0">
+                                        <h5 class="mb-1">Tutorial untuk Pengguna</h5>
+                                        <p class="text-muted small mb-0">Cara menggunakan Pandu untuk mengakses dokumen
+                                            dan informasi</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -557,59 +636,70 @@
 
                     <div class="my-4">
                         <h3 class="subsection-title">Umum</h3>
-                        
+
                         <div class="command-item p-3 mb-3 rounded">
                             <strong>Q: Apa itu Pandu?</strong>
-                            <p class="mb-0 mt-2"><strong>A:</strong> Pandu adalah Asisten Digital berbasis chatbot Telegram yang dikembangkan untuk membantu pegawai dan masyarakat mengakses informasi dan dokumen produk Bappeda Kota Dumai dengan mudah dan cepat.</p>
+                            <p class="mb-0 mt-2"><strong>A:</strong> Pandu adalah Asisten Digital berbasis chatbot
+                                Telegram yang dikembangkan untuk membantu pegawai dan masyarakat mengakses informasi dan
+                                dokumen produk Bappeda Kota Dumai dengan mudah dan cepat.</p>
                         </div>
 
                         <div class="command-item p-3 mb-3 rounded">
                             <strong>Q: Apakah Pandu gratis?</strong>
-                            <p class="mb-0 mt-2"><strong>A:</strong> Ya, Pandu sepenuhnya gratis untuk digunakan oleh semua pegawai Bappeda dan masyarakat umum.</p>
+                            <p class="mb-0 mt-2"><strong>A:</strong> Ya, Pandu sepenuhnya gratis untuk digunakan oleh
+                                semua pegawai Bappeda dan masyarakat umum.</p>
                         </div>
 
                         <div class="command-item p-3 mb-3 rounded">
                             <strong>Q: Apakah Pandu bisa diakses 24/7?</strong>
-                            <p class="mb-0 mt-2"><strong>A:</strong> Ya, Pandu tersedia 24 jam setiap hari untuk menjawab pertanyaan Anda.</p>
+                            <p class="mb-0 mt-2"><strong>A:</strong> Ya, Pandu tersedia 24 jam setiap hari untuk
+                                menjawab pertanyaan Anda.</p>
                         </div>
                     </div>
 
                     <div class="my-4">
                         <h3 class="subsection-title">Dokumen & Informasi</h3>
-                        
+
                         <div class="command-item p-3 mb-3 rounded">
                             <strong>Q: Dokumen apa saja yang tersedia di Pandu?</strong>
-                            <p class="mb-0 mt-2"><strong>A:</strong> Pandu menyediakan akses ke dokumen produk Bappeda seperti RPJPD, RPJMD, RKPD, LAKIP, Laporan LKPJ, Renstra OPD, dan dokumen perencanaan lainnya.</p>
+                            <p class="mb-0 mt-2"><strong>A:</strong> Pandu menyediakan akses ke dokumen produk Bappeda
+                                seperti RPJPD, RPJMD, RKPD, LAKIP, Laporan LKPJ, Renstra OPD, dan dokumen perencanaan
+                                lainnya.</p>
                         </div>
 
                         <div class="command-item p-3 mb-3 rounded">
                             <strong>Q: Bagaimana jika dokumen yang saya cari tidak ditemukan?</strong>
-                            <p class="mb-0 mt-2"><strong>A:</strong> Pandu akan memberi tahu bahwa dokumen tidak tersedia dan menyarankan untuk menghubungi media sosial resmi Bappeda atau menghubungi bidang terkait secara langsung.</p>
+                            <p class="mb-0 mt-2"><strong>A:</strong> Pandu akan memberi tahu bahwa dokumen tidak
+                                tersedia dan menyarankan untuk menghubungi media sosial resmi Bappeda atau menghubungi
+                                bidang terkait secara langsung.</p>
                         </div>
 
                         <div class="command-item p-3 mb-3 rounded">
                             <strong>Q: Apakah saya bisa download dokumen langsung dari Pandu?</strong>
-                            <p class="mb-0 mt-2"><strong>A:</strong> Pandu akan memberikan link Google Drive untuk mengakses dokumen. Anda bisa membuka dan mendownload dokumen melalui link tersebut.</p>
+                            <p class="mb-0 mt-2"><strong>A:</strong> Pandu akan memberikan link Google Drive untuk
+                                mengakses dokumen. Anda bisa membuka dan mendownload dokumen melalui link tersebut.</p>
                         </div>
                     </div>
 
                     <div class="my-4">
                         <h3 class="subsection-title">Keamanan & Privasi</h3>
-                        
+
                         <div class="command-item p-3 mb-3 rounded">
                             <strong>Q: Apakah data percakapan saya aman?</strong>
-                            <p class="mb-0 mt-2"><strong>A:</strong> Pandu hanya menyimpan riwayat percakapan untuk konteks dan tidak membagikan data pribadi Anda kepada pihak lain.</p>
+                            <p class="mb-0 mt-2"><strong>A:</strong> Pandu hanya menyimpan riwayat percakapan untuk
+                                konteks dan tidak membagikan data pribadi Anda kepada pihak lain.</p>
                         </div>
 
                         <div class="command-item p-3 mb-3 rounded">
                             <strong>Q: Mengapa Pandu meminta verifikasi untuk data tertentu?</strong>
-                            <p class="mb-0 mt-2"><strong>A:</strong> Untuk melindungi data kepegawaian dan informasi internal dari akses yang tidak sah, sesuai dengan protokol keamanan data.</p>
+                            <p class="mb-0 mt-2"><strong>A:</strong> Untuk melindungi data kepegawaian dan informasi
+                                internal dari akses yang tidak sah, sesuai dengan protokol keamanan data.</p>
                         </div>
                     </div>
 
                     <div class="my-4">
                         <h3 class="subsection-title">Masalah Teknis</h3>
-                        
+
                         <div class="command-item p-3 mb-3 rounded">
                             <strong>Q: Pandu tidak merespons, apa yang harus dilakukan?</strong>
                             <div class="mt-2"><strong>A:</strong> Coba langkah berikut:</div>
@@ -635,7 +725,7 @@
 
                     <div class="my-4">
                         <h3 class="subsection-title">💡 Tips & Trik</h3>
-                        
+
                         <div class="row mt-4">
                             <div class="col-md-6 col-lg-3 mb-3">
                                 <div class="feature-card">
@@ -666,7 +756,7 @@
 
                     <div class="my-4 d-none">
                         <h3 class="subsection-title">📞 Kontak & Dukungan</h3>
-                        
+
                         <div class="alert alert-info">
                             <strong>Butuh Bantuan Lebih Lanjut?</strong>
                             <p class="mt-3 mb-2">Hubungi Tim Dukungan Pandu:</p>
@@ -678,7 +768,7 @@
                                 <li><strong>Alamat:</strong> Jl. Tuanku Tambusai, Bagan Besar, Kota Dumai</li>
                             </ul>
                             <p class="mb-0 mt-3"><strong>Penanggung Jawab Teknis:</strong><br>
-                            Subbag Umum dan Kepegawaian Sekretariat Bappeda Kota Dumai</p>
+                                Subbag Umum dan Kepegawaian Sekretariat Bappeda Kota Dumai</p>
                         </div>
                     </div>
 
@@ -710,17 +800,26 @@
             <ul class="nav" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#admin" role="tab">
-                        <div class="nav-icon"><span style="font-size: 1.5rem">👨‍💼</span><span class="d-none d-sm-block"> &nbsp;Admin</span></div>
+                        <div class="nav-icon"><span style="font-size: 1.5rem">👨‍💼</span><span
+                                class="d-none d-sm-block"> &nbsp;Admin</span></div>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#user" role="tab">
-                        <div class="nav-icon"><span style="font-size: 1.5rem">👥</span><span class="d-none d-sm-block"> &nbsp;Pengguna</span></div>
+                        <div class="nav-icon"><span style="font-size: 1.5rem">👥</span><span class="d-none d-sm-block">
+                                &nbsp;Pengguna</span></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#galeri" role="tab">
+                        <div class="nav-icon"><span style="font-size: 1.5rem">🎬</span><span class="d-none d-sm-block">
+                                &nbsp;Galeri</span></div>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#faq" role="tab">
-                        <div class="nav-icon"><span style="font-size: 1.5rem">❓</span><span class="d-none d-sm-block"> &nbsp;FAQ</span></div>
+                        <div class="nav-icon"><span style="font-size: 1.5rem">❓</span><span class="d-none d-sm-block">
+                                &nbsp;FAQ</span></div>
                     </a>
                 </li>
             </ul>
@@ -732,9 +831,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-    
+
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Smooth scroll when tab changes
             $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                 $('html, body').animate({
@@ -744,9 +843,9 @@
 
             // Animate step cards on first load
             $('.step-card').css('opacity', '0.3');
-            setTimeout(function() {
-                $('.tab-pane.active .step-card').each(function(index) {
-                    $(this).delay(100 * index).animate({opacity: 1}, 300);
+            setTimeout(function () {
+                $('.tab-pane.active .step-card').each(function (index) {
+                    $(this).delay(100 * index).animate({ opacity: 1 }, 300);
                 });
             }, 100);
 
@@ -754,24 +853,24 @@
             $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                 var targetPane = $($(e.target).attr('href'));
                 targetPane.find('.step-card').css('opacity', '0.3');
-                targetPane.find('.step-card').each(function(index) {
-                    $(this).delay(100 * index).animate({opacity: 1}, 300);
+                targetPane.find('.step-card').each(function (index) {
+                    $(this).delay(100 * index).animate({ opacity: 1 }, 300);
                 });
             });
 
             // Copy code functionality
-            $('.command-item code, .command-box code, code.email').click(function() {
+            $('.command-item code, .command-box code, code.email').click(function () {
                 var text = $(this).text();
                 var $temp = $('<input>');
                 $('body').append($temp);
                 $temp.val(text).select();
                 document.execCommand('copy');
                 $temp.remove();
-                
+
                 // Show tooltip
                 $(this).attr('data-original-title', 'Tersalin!').tooltip('show');
                 var $this = $(this);
-                setTimeout(function() {
+                setTimeout(function () {
                     $this.tooltip('hide');
                 }, 1000);
             });
@@ -783,13 +882,14 @@
             });
 
             // Smooth scroll for anchor links
-            $('a[href^="#"]').on('click', function(e) {
+            $('a[href^="#"]').on('click', function (e) {
                 var target = $(this.getAttribute('href'));
-                if(target.length) {
+                if (target.length) {
                     e.preventDefault();
                 }
             });
         });
     </script>
 </body>
+
 </html>
