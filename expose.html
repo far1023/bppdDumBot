@@ -535,6 +535,14 @@
         .close-video-button:focus {
             color: #bbb;
         }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -547,7 +555,7 @@
             <div class="slide-content">
                 <div>LAPORAN AKTUALISASI PELATIHAN DASAR CPNS GOLONGAN III</div>
                 <h1>OPTIMALISASI SISTEM INFORMASI DOKUMEN PRODUK BAPPEDA KOTA DUMAI MELALUI CHATBOT ASISTEN DIGITAL
-                    TELEGRAM</h1>
+                    TELEGRAM TERINTEGRASI PUSAT PENYIMPANAN DIGITAL</h1>
                 <h2 class="author">FUAD AGIL ROSADI, S.KOM</h2>
                 <h2 class="author">NIP. 199602232025041001</h2>
                 <h3>Coach: Bpk. Arfiga Wahyu, S.STP &emsp; Mentor: Bpk. Jufri Yanto, S.Kom</h3>
@@ -590,7 +598,7 @@
                 <div class="content-grid" style="padding-top: 2%;">
                     <div style="text-align:left;">
                         <div>Sebuah Asisten Digital berbasis Chatbot Telegram yang terintegrasi dengan Pusat Penyimpanan
-                            Digital (Google Drive) untuk mempermudah pencarian dan pengelolaan dokumen.</div>
+                            Digital untuk mempermudah pencarian dan pengelolaan dokumen.</div>
                         <ul>
                             <li><b>Antarmuka Chatbot:</b> Pengguna berinteraksi via Telegram.</li>
                             <li><b>"Otak" Sistem:</b> Google Sheet sebagai database metadata.</li>
@@ -972,20 +980,8 @@
         <div class="slide" data-title="Summary">
             <div class="slide-header">Rangkuman</div>
             <div class="slide-content" style="width:100%;">
-                <h2>Kesimpulan dan Manfaat</h2>
+                <h2>Manfaat dan Rencana Pengembangan</h2>
                 <div class="content-grid" style="grid-template-columns: 1fr 1fr; align-items: start;">
-                    <div style="text-align:left;">
-                        <h3>Kesimpulan</h3>
-                        <ul>
-                            <li>Pengelolaan arsip internal <strong>berhasil dioptimalkan</strong> melalui Chatbot PANDU.
-                            </li>
-                            <li><strong>Nilai-nilai dasar ASN BerAKHLAK</strong> (Berorientasi Pelayanan, Akuntabel,
-                                Kompeten, dll.) telah teraktualisasi dalam seluruh rangkaian kegiatan.</li>
-                            <li>Inovasi yang diterapkan terbukti efektif menjawab <i>core issue</i>, dengan
-                                <strong>peningkatan efisiensi pencarian dokumen mencapai 98%</strong>.
-                            </li>
-                        </ul>
-                    </div>
                     <div style="text-align:left;">
                         <h3>Manfaat</h3>
                         <ul>
@@ -998,17 +994,8 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-            </div>
-            <div class="slide-footer">Kesimpulan</div>
-        </div>
-
-        <div class="slide" data-title="Strategi keberlanjutan">
-            <div class="slide-content" style="width:100%;">
-                <h2>Strategi Keberlanjutan & Akses Inovasi</h2>
-                <div class="content-grid-kiri-kanan">
-                    <div class="kolom-kiri">
-                        <h3>Rencana Tindak Lanjut</h3>
+                    <div style="text-align:left;">
+                        <h3>Rencana pengembangan</h3>
                         <p>Menjaga keberlanjutan dan pengembangan hasil aktualisasi.</p>
                         <table class="styled-table">
                             <thead>
@@ -1037,10 +1024,30 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+            <div class="slide-footer">Kesimpulan</div>
+        </div>
 
+        <div class="slide" data-title="Selesai">
+            <div class="slide-content" style="width:100%;">
+                <div class="logo-container">
+                    <img src="assets/logo/kemendagri.svg" alt="Logo Kemendagri" height="150px">
+                    <img src="assets/logo/dumai.png" alt="Logo Pemkot Dumai" height="80px">
+                    <img src="assets/logo/berakhlak.png" alt="BerAKHLAK" height="50px">
+                    <img src="assets/logo/bangga.png" alt="ASN Bangga Membangun Negeri" height="50px">
+                </div>
+                <div class="content-grid-kiri-kanan" style="margin-bottom: 200px;">
+                    <div class="kolom-kiri" style="text-align: right;">
+                        <h2>Terima Kasih</h2>
+                        <p>Silakan pindai kode QR untuk mencoba langsung.<br>Paparan ini dapat diakses kembali pada
+                            laman
+                        </p>
+                        <a href="https://akses-bappeda.vercel.app/expose.html" target="_blank"
+                            style="margin-top: 10px;">https://akses-bappeda.vercel.app/expose.html
+                        </a>
+                    </div>
                     <div class="kolom-kanan">
-                        <h3>Akses Cepat Inovasi</h3>
-                        <p>Silakan pindai kode QR untuk mencoba langsung.</p>
                         <div class="qr-grid-container-kolom">
                             <div class="qr-grid-item-kolom">
                                 <img src="assets/images/qr_bot.png" alt="QR Code Bot Telegram">
@@ -1061,7 +1068,6 @@
                         <button id="promoBtn" class="promo-video-btn">▶️ Tonton Video Promo</button>
                     </div>
                 </div>
-                <h2 style="margin-top:30px; width: 100%; text-align: center;">Terima Kasih</h2>
             </div>
         </div>
     </div>
