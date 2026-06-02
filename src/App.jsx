@@ -77,10 +77,8 @@ function TocSidebar({ active, scrollRoot }) {
           if (visible.length) setActiveId(visible[0].target.id);
         },
         {
-          root,
-          // 15% from top → heading must enter top zone to activate
-          // 60% from bottom → only the heading near the top is tracked
-          rootMargin: "-15% 0px -60% 0px",
+          root: null, // Viewport
+          rootMargin: "-100px 0px -60% 0px", // Offset for sticky header
           threshold: 0,
         }
       );
@@ -99,18 +97,9 @@ function TocSidebar({ active, scrollRoot }) {
     const el = document.getElementById(id);
     if (!el) return;
     setActiveId(id);
-    const container = scrollRoot?.current;
-    if (container) {
-      // getBoundingClientRect gives position relative to viewport;
-      // subtracting container's top gives offset within the container.
-      const offset = el.getBoundingClientRect().top
-        - container.getBoundingClientRect().top
-        + container.scrollTop
-        - 32; // 32px breathing room above heading
-      container.scrollTo({ top: offset, behavior: "smooth" });
-    } else {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    // Add 80px offset for the sticky header
+    const y = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top: y, behavior: "smooth" });
   }
 
   if (!toc.length) return null;
@@ -192,10 +181,10 @@ function DocsLayout() {
   }
 
   return (
-    <div className="h-screen bg-white flex flex-col" style={{ fontFamily: "'Inter', sans-serif" }}>
-      {/* ── Top nav ── */}
+    <div className="min-h-screen flex flex-col bg-[#fafafa]">
+      {/* ── Header ── */}
       <header
-        className="sticky top-0 z-30 bg-white border-b border-[#ebebeb] h-14"
+        className="sticky top-0 z-50 flex-shrink-0 h-14 bg-white border-b border-[#ebebeb] w-full"
         style={{ boxShadow: "0 1px 0 #ebebeb" }}
       >
         <div className="max-w-screen-xl mx-auto px-4 md:px-6 h-full flex items-center gap-4">
@@ -239,7 +228,7 @@ function DocsLayout() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/30 md:hidden"
+              className="fixed inset-0 z-50 bg-black/30 md:hidden"
               onClick={() => setSidebarOpen(false)}
             />
             {/* Drawer */}
@@ -299,64 +288,54 @@ function DocsLayout() {
 
               {/* Drawer footer */}
               <div className="mt-auto pt-8 border-t border-[#ebebeb]">
-                <p className="text-[10px] font-mono text-[#888888] mb-1">Bappeda Kota Dumai</p>
-                <p className="text-[10px] text-[#888888]">v1.0 · 2025</p>
+                <p className="text-[10px] font-mono text-[#888888] mb-1"></p>
+                <p className="text-[10px] text-[#888888]"></p>
               </div>
             </motion.aside>
           </>
         )}
       </AnimatePresence>
 
-      {/* ── Main layout (three-column, inner-scroll) ── */}
-      {/*
-          The row is flex-1 + overflow-hidden so it fills exactly the
-          remaining viewport height after the sticky header.
-          Each column manages its own vertical scroll independently,
-          so the sidebars never "run out of container" and drift upward.
-      */}
-      <div className="flex flex-1 overflow-hidden max-w-screen-xl mx-auto w-full">
+      {/* ── Main layout (three columns) ── */}
+      <div className="flex-1 flex max-w-screen-xl w-full mx-auto relative">
 
-        {/* ── Left sidebar (desktop only, full-height scroll) ── */}
-        <aside className="hidden md:flex flex-col w-56 flex-shrink-0 border-r border-[#ebebeb] bg-white pt-8 pb-12 px-4 overflow-y-auto">
-          <p className="text-[10px] font-mono text-[#888888] uppercase tracking-widest mb-3 px-3">
-            Dokumentasi
-          </p>
-          <nav className="flex flex-col gap-0.5">
-            {sections.map((s) => {
-              const Icon = s.icon;
-              const isActive = active === s.id;
-              return (
-                <button
-                  key={s.id}
-                  onClick={() => setActive(s.id)}
-                  className={`relative flex items-center gap-2.5 px-3 py-2 rounded-md text-sm text-left w-full transition-colors cursor-pointer ${isActive
-                    ? "bg-[#fafafa] text-[#171717] font-medium"
-                    : "text-[#4d4d4d] hover:bg-[#fafafa] hover:text-[#171717]"
-                    }`}
-                >
-                  {isActive && (
-                    <motion.span
-                      layoutId="sidebarIndicator"
-                      className="absolute left-0 w-0.5 h-5 bg-[#171717] rounded-r-full"
-                    />
-                  )}
-                  <Icon className="w-3.5 h-3.5 flex-shrink-0" />
-                  {s.label}
-                </button>
-              );
-            })}
-          </nav>
-
-          {/* Sidebar footer */}
-          <div className="mt-auto pt-8 border-t border-[#ebebeb]">
-            <p className="text-[10px] font-mono text-[#888888] mb-1">Bappeda Kota Dumai</p>
-            <p className="text-[10px] text-[#888888]">v1.0 · 2025</p>
+        {/* ── Left Sidebar (Desktop) ── */}
+        <aside className="hidden lg:flex flex-col w-56 xl:w-64 flex-shrink-0">
+          <div className="fixed top-14 w-56 xl:w-64 h-[calc(100vh-3.5rem)] flex flex-col flex-shrink-0 border-r border-[#ebebeb] bg-[#fafafa] pt-8 pb-12 px-4 overflow-y-auto z-0">
+            <p className="text-[10px] font-mono text-[#888888] uppercase tracking-widest mb-3 px-3">
+              Dokumentasi
+            </p>
+            <nav className="flex flex-col gap-0.5">
+              {sections.map((s) => {
+                const Icon = s.icon;
+                const isActive = active === s.id;
+                return (
+                  <button
+                    key={s.id}
+                    onClick={() => setActive(s.id)}
+                    className={`relative flex items-center gap-2.5 px-3 py-2 rounded-md text-sm text-left w-full transition-colors cursor-pointer ${isActive
+                      ? "bg-[#fafafa] text-[#171717] font-medium"
+                      : "text-[#4d4d4d] hover:bg-[#fafafa] hover:text-[#171717]"
+                      }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="sidebarIndicator"
+                        className="absolute left-0 w-0.5 h-5 bg-[#171717] rounded-r-full"
+                      />
+                    )}
+                    <Icon className="w-3.5 h-3.5 flex-shrink-0" />
+                    {s.label}
+                  </button>
+                );
+              })}
+            </nav>
           </div>
         </aside>
 
         {/* ── Content area (scrolls independently) ── */}
-        <main ref={mainScrollRef} className="flex-1 min-w-0 overflow-y-auto bg-white">
-          <div className="px-6 md:px-12 pt-10 md:pt-14 pb-[27vh]">
+        <main className="flex-1 min-w-0 bg-white">
+          <div className="px-6 md:px-12 pt-10 md:pt-14 pb-[30vh]">
             <AnimatePresence>
               <motion.div
                 key={active}
@@ -377,24 +356,23 @@ function DocsLayout() {
         </main>
 
         {/* ── Right TOC (wide screens only, full-height scroll) ── */}
-        <aside className="hidden xl:flex flex-col w-52 flex-shrink-0 pt-8 px-4 overflow-y-auto">
-          <TocSidebar active={active} scrollRoot={mainScrollRef} />
+        <aside className="hidden xl:flex flex-col w-52 flex-shrink-0">
+          <div className="fixed top-14 w-52 h-[calc(100vh-3.5rem)] flex flex-col flex-shrink-0 pt-8 pb-12 px-4 overflow-y-auto z-0">
+            <TocSidebar active={active} />
+          </div>
         </aside>
 
       </div>
 
-      {/* ── Footer (sibling of three-column row, like header) ── */}
-      <footer className="flex-shrink-0 border-t border-[#ebebeb] bg-white">
+      {/* ── Footer ── */}
+      <footer className="relative z-10 flex-shrink-0 border-t border-[#ebebeb] bg-white">
         <div className="max-w-screen-xl mx-auto px-4 md:px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-[#171717] flex items-center justify-center">
-              <Bot className="w-3.5 h-3.5 text-white" />
-            </div>
-            <span className="text-xs font-medium text-[#171717]">Pandu</span>
+            <span className="text-xs font-medium text-[#171717]">v1.0 · Pandu</span>
             <span className="text-xs text-[#888888]">— Asisten Digital Bappeda Kota Dumai</span>
           </div>
           <p className="text-[11px] font-mono text-[#888888]">
-            © 2025 Bappeda Kota Dumai · Jl. Tuanku Tambusai, Bagan Besar
+            © 2025 Bappeda Kota Dumai
           </p>
         </div>
       </footer>
