@@ -190,23 +190,9 @@ export default function ChatWindow() {
         </div>
         <div>
           <h2 className="text-sm font-semibold text-[#171717] tracking-tight leading-tight">
-            Pandu — Asisten Digital Bappeda
+            Pandu
           </h2>
-          <p className="text-[11px] font-mono text-[#888888] leading-tight">Tanyakan dokumen & informasi Bappeda</p>
-        </div>
-        <div className="ml-auto relative p-[1.5px] rounded-full overflow-hidden flex items-center justify-center">
-          {/* Spinning Gradient */}
-          <div
-            className="absolute w-[300%] aspect-square animate-[spin_3s_linear_infinite]"
-            style={{
-              background: "conic-gradient(from 0deg, #007cf0, #00dfd8, #7928ca, #ff0080, #007cf0)",
-            }}
-          />
-          {/* Inner Badge */}
-          <div className="relative flex items-center gap-1.5 bg-white rounded-full px-3 py-1 w-full h-full">
-            <Sparkles className="w-3 h-3 text-[#7928ca]" />
-            <span className="text-[11px] font-mono text-[#171717] font-medium tracking-tight">AI Powered</span>
-          </div>
+          <p className="text-[11px] font-mono text-[#888888] leading-tight">Asisten Digital Bappeda</p>
         </div>
       </div>
 
@@ -277,7 +263,7 @@ export default function ChatWindow() {
             }}
             onKeyDown={handleKeyDown}
             disabled={isProcessing}
-            placeholder="Ketik pertanyaan Anda…"
+            placeholder="Ketik pesan..."
             className="scrollbar-hide flex-1 resize-none overflow-y-auto pl-3 text-sm text-[#171717] bg-transparent outline-none placeholder:text-[#888888] disabled:opacity-50 max-h-32"
             style={{ lineHeight: "1.5" }}
           />

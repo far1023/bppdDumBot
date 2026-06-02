@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Bot, MessageSquare, Send } from "lucide-react";
+import { Bot, Sparkles, Send } from "lucide-react";
 import ChatWindow from "./ChatWindow";
 
 /**
@@ -18,9 +18,6 @@ export default function ChatPage() {
         style={{ boxShadow: "0 1px 0 #ebebeb" }}
       >
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-md bg-[#171717] flex items-center justify-center">
-            <Bot className="w-4 h-4 text-white" />
-          </div>
           <span className="text-sm font-semibold text-[#171717] tracking-tight">Pandu</span>
         </div>
 
@@ -44,18 +41,30 @@ export default function ChatPage() {
       </header>
 
       {/* ── Below nav: hero text + chat card ── */}
-      <div className="flex-1 flex flex-col items-center overflow-hidden px-4 pt-8 pb-4">
+      <div className="flex-1 flex flex-col items-center overflow-hidden p-4">
 
         {/* Hero text */}
-        <div className="flex-shrink-0 w-full max-w-lg text-center mb-5">
-          <p className="text-[11px] font-mono text-[#888888] uppercase tracking-widest mb-2">
-            Demo Interaktif
-          </p>
+        <div className="flex-shrink-0 w-full max-w-lg text-center mb-5 md:py-4">
+          <div className="inline-block">
+            <div className="relative my-2 p-[1.5px] rounded-full overflow-hidden flex items-center justify-center">
+              <div
+                className="absolute w-[300%] aspect-square animate-[spin_3s_linear_infinite]"
+                style={{
+                  background: "conic-gradient(from 0deg, #007cf0, #00dfd8, #7928ca, #ff0080, #007cf0)",
+                }}
+              />
+              {/* Inner Badge */}
+              <div className="relative flex items-center gap-1.5 bg-white rounded-full px-3 py-1 w-full h-full">
+                <Sparkles className="w-3 h-3 text-[#7928ca]" />
+                <span className="text-[11px] font-mono text-[#171717] font-medium tracking-tight">AI Powered</span>
+              </div>
+            </div>
+          </div>
           <h1
             className="text-2xl font-semibold text-[#171717] leading-tight mb-1"
             style={{ letterSpacing: "-1px" }}
           >
-            Berkenalan dengan Pandu.
+            Berkenalan dengan Pandu
           </h1>
           <p className="text-xs text-[#4d4d4d] leading-relaxed">
             Asisten digital Bappeda Kota Dumai.
