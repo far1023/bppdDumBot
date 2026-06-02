@@ -194,9 +194,19 @@ export default function ChatWindow() {
           </h2>
           <p className="text-[11px] font-mono text-[#888888] leading-tight">Tanyakan dokumen & informasi Bappeda</p>
         </div>
-        <div className="ml-auto flex items-center gap-1.5 bg-[#fafafa] border border-[#ebebeb] rounded-full px-3 py-1">
-          <Sparkles className="w-3 h-3 text-[#888888]" />
-          <span className="text-[11px] font-mono text-[#888888]">AI Powered</span>
+        <div className="ml-auto relative p-[1.5px] rounded-full overflow-hidden flex items-center justify-center">
+          {/* Spinning Gradient */}
+          <div
+            className="absolute w-[300%] aspect-square animate-[spin_3s_linear_infinite]"
+            style={{
+              background: "conic-gradient(from 0deg, #007cf0, #00dfd8, #7928ca, #ff0080, #007cf0)",
+            }}
+          />
+          {/* Inner Badge */}
+          <div className="relative flex items-center gap-1.5 bg-white rounded-full px-3 py-1 w-full h-full">
+            <Sparkles className="w-3 h-3 text-[#7928ca]" />
+            <span className="text-[11px] font-mono text-[#171717] font-medium tracking-tight">AI Powered</span>
+          </div>
         </div>
       </div>
 
@@ -209,16 +219,6 @@ export default function ChatWindow() {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center justify-center gap-6 h-full min-h-[280px] text-center"
           >
-            {/* Brand gradient orb */}
-            <div
-              className="w-20 h-20 rounded-full flex items-center justify-center"
-              style={{
-                background:
-                  "linear-gradient(135deg, #007cf0, #00dfd8 33%, #7928ca 66%, #ff0080)",
-              }}
-            >
-              <Bot className="w-10 h-10 text-white" />
-            </div>
             <div>
               <h3 className="text-xl font-semibold text-[#171717] tracking-tight mb-1">
                 Halo! Saya Pandu 👋
