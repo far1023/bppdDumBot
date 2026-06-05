@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 const WEBHOOK_URL = "/api/ask";
 
 const QUICK_ACTIONS = [
-  { label: "RKPD 2025", message: "Berikan RKPD 2025" },
-  { label: "RPJMD", message: "Ada dokumen RPJMD?" },
-  { label: "Agenda Hari Ini", message: "Rapat apa hari ini?" },
-  { label: "Info Kontak", message: "Alamat kantor Bappeda?" },
+  { label: "RKPD " + new Date().getFullYear(), message: "Berikan dokumen RKPD " + new Date().getFullYear() },
+  { label: "RPJMD", message: "Berikan dokumen RPJMD" },
+  { label: "Agenda Hari Ini", message: "Apa agenda hari ini?" },
+  { label: "Info Kontak", message: "Bagaimana cara menghubungi kantor Bappeda?" },
 ];
 
 function getCurrentTime() {
