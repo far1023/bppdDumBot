@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Send, Bot, User, Loader2, Sparkles, SendHorizonal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const WEBHOOK_URL = "https://n8n-tq7lebytvmnn.arman.sumopod.my.id/webhook/ask-for";
+const WEBHOOK_URL = "/api/ask";
 
 const QUICK_ACTIONS = [
   { label: "RKPD 2025", message: "Berikan RKPD 2025" },
