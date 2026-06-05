@@ -6,10 +6,10 @@ import {
   PlaySquare,
   HelpCircle,
   MessageSquare,
-  Bot,
   Menu,
   X,
 } from "lucide-react";
+import BotAvatar from "./components/BotAvatar";
 import { AnimatePresence, motion } from "framer-motion";
 
 import AdminTab from "./components/AdminTab";
@@ -199,9 +199,7 @@ function DocsLayout() {
 
           {/* Logo / Product name */}
           <div className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-7 h-7 rounded-md bg-[#171717] flex items-center justify-center">
-              <Bot className="w-4 h-4 text-white" />
-            </div>
+          <BotAvatar size="sm" shape="square" />
             <span className="text-sm font-semibold text-[#171717] tracking-tight">Pandu</span>
           </div>
 
@@ -243,9 +241,7 @@ function DocsLayout() {
               {/* Drawer header */}
               <div className="flex items-center justify-between mb-6 px-3">
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-md bg-[#171717] flex items-center justify-center">
-                    <Bot className="w-4 h-4 text-white" />
-                  </div>
+                  <BotAvatar size="sm" shape="square" />
                   <span className="text-sm font-semibold text-[#171717] tracking-tight">Pandu</span>
                 </div>
                 <button

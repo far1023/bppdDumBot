@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Send, Bot, User, Loader2, Sparkles, SendHorizonal } from "lucide-react";
+import { Send, User, Loader2, Sparkles, SendHorizonal } from "lucide-react";
+import BotAvatar from "./BotAvatar";
 import { motion, AnimatePresence } from "framer-motion";
 
 const WEBHOOK_URL = "/api/ask";
@@ -19,9 +20,7 @@ function getCurrentTime() {
 function TypingIndicator() {
   return (
     <div className="flex items-end gap-2">
-      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#f5f5f5] border border-[#ebebeb] flex items-center justify-center">
-        <Bot className="w-4 h-4 text-[#888888]" />
-      </div>
+      <BotAvatar size="md" />
       <div
         className="px-4 py-3 rounded-lg rounded-tl-sm border border-[#ebebeb] bg-white"
         style={{
@@ -57,16 +56,13 @@ function Message({ msg }) {
       {/* Avatar + Bubble row — both aligned to bottom of bubble */}
       <div className={`flex items-end gap-2 w-full ${isUser ? "flex-row-reverse" : "flex-row"}`}>
         {/* Avatar */}
-        <div
-          className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center
-            ${isUser ? "bg-[#171717]" : "bg-[#f5f5f5] border border-[#ebebeb]"}`}
-        >
-          {isUser ? (
+        {isUser ? (
+          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#171717] flex items-center justify-center">
             <User className="w-4 h-4 text-white" />
-          ) : (
-            <Bot className="w-4 h-4 text-[#888888]" />
-          )}
-        </div>
+          </div>
+        ) : (
+          <BotAvatar size="md" />
+        )}
 
         {/* Bubble — user grows right-to-left (ml-auto), bot left-to-right (mr-auto) */}
         <div
@@ -183,9 +179,7 @@ export default function ChatWindow() {
       {/* ── Chat header ── */}
       <div className="px-6 py-4 border-b border-[#ebebeb] flex items-center gap-3">
         <div className="relative">
-          <div className="w-10 h-10 rounded-full bg-[#171717] flex items-center justify-center">
-            <Bot className="w-5 h-5 text-white" />
-          </div>
+          <BotAvatar size="lg" />
           {/* Online dot */}
           <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-white" />
         </div>
