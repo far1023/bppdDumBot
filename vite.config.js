@@ -8,10 +8,21 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vite.dev/config/
 export default defineConfig({
+  appType: 'spa',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      '/api/ask': {
+        target: 'https://n8n-tq7lebytvmnn.arman.sumopod.my.id',
+        changeOrigin: true,
+        rewrite: () => '/webhook/ask-for',
+      },
+    },
+  },
 })
+

@@ -143,14 +143,15 @@ export default function ChatWindow() {
           body: JSON.stringify({ session_id: sessionId, message: text }),
         });
 
-        if (!response.ok) throw new Error("Network response was not ok");
-
         const data = await response.json();
 
+        // n8n can return an array [{ code, message }] or a plain object { code, message }
+        const payload = Array.isArray(data) ? data[0] : data;
+
         const botText =
-          data && data[0] && data[0].code === 200
-            ? data[0].message
-            : "<p>Maaf, terjadi kesalahan dalam memproses permintaan Anda. Silakan coba lagi.</p>";
+          payload?.code === 200
+            ? payload.message
+            : `<p style="color:#ee0000">❌ ${payload?.message ?? "Maaf, terjadi kesalahan dalam memproses permintaan Anda."}</p>`;
 
         setMessages((prev) => [...prev, { role: "bot", text: botText, time: getCurrentTime() }]);
       } catch {
