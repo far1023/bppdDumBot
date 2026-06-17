@@ -173,7 +173,7 @@ export default function UserTab() {
                 </a>
               </p>
             </div>
-            <img src="/assets/images/bot_pandu.PNG" alt="bot PANDU" className="w-[250px] rounded-lg shadow-sm border border-[#ebebeb] flex-shrink-0" />
+            <img src="/assets/images/bot_pandu.webp" alt="bot PANDU" className="w-[250px] rounded-lg shadow-sm border border-[#ebebeb] flex-shrink-0" />
           </div>
         </Step>
 
@@ -187,7 +187,7 @@ export default function UserTab() {
               <CodeBlock>/start</CodeBlock>
               <p>Pandu akan menyapa dan siap membantu Anda.</p>
             </div>
-            <img src="/assets/images/bot_start.PNG" alt="bot PANDU" className="w-[250px] rounded-lg shadow-sm border border-[#ebebeb] flex-shrink-0" />
+            <img src="/assets/images/bot_start.webp" alt="bot PANDU" className="w-[250px] rounded-lg shadow-sm border border-[#ebebeb] flex-shrink-0" />
           </div>
         </Step>
 
@@ -200,7 +200,7 @@ Ada dokumen RPJMD?
 Rapat apa hari ini?
 Alamat kantor Bappeda?`}</CodeBlock>
             </div>
-            <img src="/assets/images/bot_ask.PNG" alt="bot PANDU" className="w-[250px] rounded-lg shadow-sm border border-[#ebebeb] flex-shrink-0" />
+            <img src="/assets/images/bot_ask.webp" alt="bot PANDU" className="w-[250px] rounded-lg shadow-sm border border-[#ebebeb] flex-shrink-0" />
           </div>
         </Step>
       </div>
