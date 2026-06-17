@@ -113,7 +113,7 @@ function StyledTable({ headers, rows }) {
   return (
     <table className="w-full text-sm border-collapse mt-3">
       <thead>
-        <tr className="bg-[#800000] text-white text-left">
+        <tr className="bg-[#800000] text-white text-center">
           {headers.map((h, i) => <th key={i} className="px-3 py-2.5 font-medium">{h}</th>)}
         </tr>
       </thead>
