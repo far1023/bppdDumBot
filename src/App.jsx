@@ -17,6 +17,7 @@ import UserTab from "./components/UserTab";
 import GalleryTab from "./components/GalleryTab";
 import FaqTab from "./components/FaqTab";
 import ChatPage from "./components/ChatPage";
+import ExposePresentation from "./components/ExposePresentation";
 
 import "./App.css";
 
@@ -382,6 +383,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<DocsLayout />} />
         <Route path="/chat" element={<ChatPage />} />
+        <Route path="/expose" element={<ExposePresentation />} />
       </Routes>
     </BrowserRouter>
   );
